@@ -3,37 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Front-End Design Project</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <div>
-            <a><svg></svg></a>
-            <div>
-                <a href="explore.html">Home</a>
-                <a>Explore</a>
+        <div class="header-container">
+            <a id="logo" href="index.html">ex.ca/articles</a>
+            <div class="link-tab">
+                <a href="index.html">Home</a>
+                <a href="explore.html">Explore</a>
             </div>
         </div>
     </header>
     <main>
-        <div>
-            <h1>example.ca</h1>
-            <p>Frontend, Backend, DevOps and everything in between.</p>
+        <div class="title-container">
+            <h1 id="heading">ex.ca</h1>
+            <p id="subheading">A theoretical blog for articles and stuff, and whatever would suffice.</p>
         </div>
-        <div>
-            <a>
-                <span>Deploy to ECS with Fargate using Terraform</span>
-                <span><time>Nov 3, 2023</time></span>
+        <div class="article-listing">
+            <a class="article" href="articles/example-article3.html">
+                <span>Common JavaScript Functions</span>
+                <span class="article-date"><time>Jul 1, 2026</time></span>
             </a>
-            <a>
-                <span>IaaS vs PaaS vs SaaS</span>
-                <span><time>Oct 24, 2023</time></span>
+            <a class="article" href="articles/example-article2.html">
+                <span>Most Common CSS Commands</span>
+                <span class="article-date"><time>Jun 24, 2026</time></span>
+            </a>
+            <a class="article" href="articles/example-article1.html">
+                <span>Basic HTML Commands and Their Usages</span>
+                <span class="article-date"><time>May 1, 2026</time></span>
             </a>
         </div>
     </main>
     <footer>
-        <p>&copy; All rights reserved - example.ca</p>
+        <p id="copyright">&copy; All rights reserved - ex.ca</p>
+        <a id="github-svg" href="https://github.com/Melpomene-18">
+            <img src="images/GitHub_Invertocat_White.svg" alt="Github logo"/>
+        </a>
     </footer>
 </body>
 </html>
