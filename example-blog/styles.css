@@ -2,7 +2,7 @@
     --color-bg:            rgb(20, 20, 20);
     --color-bg-surface:    rgb(34, 34, 34);
     --color-text:          white;
-    --color-text-surface:  #e5e7eb;
+    --color-text-surface:  rgb(229, 231, 235);
     --color-muted:         grey;
 }
 
@@ -169,4 +169,94 @@ footer {
 
 .tag-btn:hover .article-count {
     color: var(--color-bg-surface);
+}
+
+/* Exclusive to article pages */
+
+article {
+    margin-top: 2em;
+}
+
+article h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+}
+
+article h2 {
+    font-size: 1.75em;
+    margin: 2em 0 0.75em;
+    padding-bottom: 0.25em;
+    border-bottom: 1px solid var(--color-bg-surface);
+}
+
+article h3 {
+    font-size: 1.25em;
+    margin: 1.5em 0 0.5em;
+}
+
+article p {
+    font-size: 1.125em;
+    line-height: 1.75;
+    color: var(--color-text-surface);
+    margin-bottom: 1.5em;
+}
+
+article ul, article ol {
+    margin: 0 0 1.5em 1.5em;
+    color: var(--color-text-surface);
+    line-height: 1.75;
+}
+
+article ul li, article ol li {
+    margin-bottom: 0.5em;
+}
+
+article code {
+    font-family: monospace;
+    font-size: 0.9em;
+    background-color: var(--color-bg-surface);
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    color: rgb(240, 161, 96);
+}
+
+article pre {
+    background-color: var(--color-bg-surface);
+    padding: 1em;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-bottom: 1.5em;
+}
+
+article pre code {
+    background: none;
+    padding: 0;
+    color: var(--color-text-surface);
+}
+
+.article-meta {
+    color: var(--color-muted);
+    margin-bottom: 2em;
+    font-size: 1em;
+}
+
+.article-meta a {
+    color: var(--color-muted);
+    text-decoration: none;
+}
+
+.article-meta a:hover {
+    color: var(--color-text);
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 2em;
+    color: var(--color-muted);
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.back-link:hover {
+    color: var(--color-text);
 }

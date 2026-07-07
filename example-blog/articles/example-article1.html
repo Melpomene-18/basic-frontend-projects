@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic HTML Commands and Their Usages — ex.ca</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a id="logo" href="../index.html">ex.ca/articles</a>
+            <div class="link-tab">
+                <a href="../index.html">Home</a>
+                <a href="../explore.html">Explore</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <article>
+            <h1>Basic HTML Commands and Their Usages</h1>
+            <p class="article-meta"><time datetime="2026-05-01">May 1, 2026</time> · <a href="../explore.html">HTML</a></p>
+
+            <p>HTML (HyperText Markup Language) is the backbone of every web page. Below are the most essential elements you will use when writing HTML.</p>
+
+            <h2>Document Structure</h2>
+            <p>Every HTML document starts with a standard skeleton that tells the browser how to interpret it:</p>
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- content here --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h2>Headings</h2>
+            <p>Headings range from <code>&lt;h1&gt;</code> down to <code>&lt;h6&gt;</code>. Use <code>&lt;h1&gt;</code> once per page for the main title, then nest subheadings in order.</p>
+            <pre><code>&lt;h1&gt;Main Title&lt;/h1&gt;
+&lt;h2&gt;Section&lt;/h2&gt;
+&lt;h3&gt;Subsection&lt;/h3&gt;</code></pre>
+
+            <h2>Paragraphs and Text</h2>
+            <p>The <code>&lt;p&gt;</code> tag wraps a block of text. For inline emphasis use <code>&lt;strong&gt;</code> for bold and <code>&lt;em&gt;</code> for italic.</p>
+            <pre><code>&lt;p&gt;A paragraph of &lt;strong&gt;bold&lt;/strong&gt; and &lt;em&gt;italic&lt;/em&gt; text.&lt;/p&gt;</code></pre>
+
+            <h2>Links</h2>
+            <p>The anchor tag <code>&lt;a&gt;</code> creates hyperlinks. The <code>href</code> attribute sets the destination URL.</p>
+            <pre><code>&lt;a href="/about.html"&gt;About page&lt;/a&gt;</code></pre>
+
+            <h2>Images</h2>
+            <p>The <code>&lt;img&gt;</code> tag is self-closing. Always include an <code>alt</code> attribute for accessibility.</p>
+            <pre><code>&lt;img src="photo.jpg" alt="A scenic mountain view"&gt;</code></pre>
+
+            <h2>Lists</h2>
+            <p>Unordered lists use bullet points; ordered lists use numbers.</p>
+            <pre><code>&lt;ul&gt;
+    &lt;li&gt;Item one&lt;/li&gt;
+    &lt;li&gt;Item two&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+    &lt;li&gt;First step&lt;/li&gt;
+    &lt;li&gt;Second step&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+            <h2>Forms</h2>
+            <p>The <code>&lt;form&gt;</code> element collects user input and sends it to a server.</p>
+            <pre><code>&lt;form action="/submit" method="post"&gt;
+    &lt;label for="name"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name"&gt;
+    &lt;button type="submit"&gt;Send&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+            <h2>Divisions and Spans</h2>
+            <p><code>&lt;div&gt;</code> is a block-level container; <code>&lt;span&gt;</code> is inline. Both are used for grouping and styling.</p>
+            <pre><code>&lt;div class="card"&gt;
+    &lt;span class="badge"&gt;New&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+            <h2>Semantic HTML</h2>
+            <p>Semantic tags like <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, and <code>&lt;footer&gt;</code> describe the purpose of content blocks. They improve accessibility and SEO.</p>
+            <pre><code>&lt;header&gt;
+    &lt;nav&gt;...&lt;/nav&gt;
+&lt;/header&gt;
+&lt;main&gt;
+    &lt;section&gt;
+        &lt;h2&gt;Introduction&lt;/h2&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+&lt;footer&gt;...&lt;/footer&gt;</code></pre>
+
+            <a class="back-link" href="../index.html">← Back to home</a>
+        </article>
+    </main>
+    <footer>
+        <p id="copyright">&copy; All rights reserved - ex.ca</p>
+        <a id="github-svg" href="https://github.com/Melpomene-18">
+            <img src="../images/GitHub_Invertocat_White.svg" alt="Github logo"/>
+        </a>
+    </footer>
+</body>
+</html>
