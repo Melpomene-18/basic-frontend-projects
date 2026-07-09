@@ -43,7 +43,7 @@ Returns:
     Nothing.
 */
 function showError(message) {
-    errorText.textContent=message;
+    errorText.textContent = message;
     errorText.classList.remove('hidden');
     userInformation.classList.add("hidden");
     linksSegment.classList.add("hidden");
@@ -77,7 +77,7 @@ function displayUser({ name, bio, avatar_url, login, location, company, public_r
     nameEl.textContent = name || 'Unknown Name';
     bioEl.textContent = bio || 'No bio.';
     avatarURL.src = avatar_url || '';
-    avatarURL.alt = `${login}'s Avatar` || '';
+    avatarURL.alt = login ? `${login}'s Avatar` : 'User Avatar';
     locationEl.textContent = location || 'Location Not Provided';
     companyEl.textContent = company || 'Company Not Provided';
     reposEl.textContent = public_repos ?? 0;
