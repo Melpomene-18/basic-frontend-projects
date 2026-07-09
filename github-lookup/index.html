@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Username Lookup</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <h1>GitHub Username Lookup</h1>
+
+        <div class="user-lookup">
+            <form id="lookup-form">
+                <div class="form-field">
+                    <label for="username-input">Input Username:</label>
+                    <input type="text" id="username-input" name="username-input" autocomplete="off" />
+                </div>
+                <button type="submit" id="lookup-btn">Lookup User</button>
+                <p id="error" class="hidden" role="alert" aria-live="polite"></p>
+            </form>
+        </div>
+
+        <div class="user-information hidden">       
+            <div class="name-segment">
+                <img id="avatar-url" src="" alt="User Avatar" loading="lazy" />
+                <h2 id="name"></h2>
+            </div>
+            <p id="bio"></p>
+
+            <div class="geo-segment">
+                <p id="location"></p>
+                <p id="company"></p>
+            </div>
+
+            <div class="stats-segment">
+                <div class="stat">
+                    <span id="repos"></span>
+                    <span class="stat-label">Repos</span>
+                </div>
+                <div class="stat">
+                    <span id="followers"></span>
+                    <span class="stat-label">Followers</span>
+                </div>
+                <div class="stat">
+                    <span id="following"></span>
+                    <span class="stat-label">Following</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="links-segment hidden">
+            <a id="user-profile-link" href="#" target="_blank" rel="noopener noreferrer">View Profile</a>
+        </div>
+    </main>
+    <footer>
+        <p id="copyright">&copy; All rights reserved - ex.ca</p>
+        <a id="github-svg" href="https://github.com/Melpomene-18">
+            <img src="../example-blog/images/GitHub_Invertocat_White.svg" alt="Github logo"/>
+        </a>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
