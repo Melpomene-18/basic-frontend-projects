@@ -22,7 +22,7 @@ Description: Fetches the user associated with the provided username using GitHub
 Params: 
     username (string): The provided username that the user wishes to look up.
 returns: 
-    Usable data from our response. My be resolved, or fail, in which case it is caught.
+    Usable data from our response. May be resolved, or fail, in which case it is caught.
 */
 async function fetchUser(username) {
     const response = await fetch(`https://api.github.com/users/${username}`);
