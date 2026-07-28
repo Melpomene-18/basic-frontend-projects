@@ -1,0 +1,217 @@
+:root {
+    --bg-primary: #1b1b1b;
+    --bg-card: #353535;
+    --text-primary: #ccc;
+    --color-white: #fff;
+    --color-hover-bg: #4a4a4a;
+    --color-add: #3cb043;
+    --color-add-dark: #2a7a2a;
+    --color-modify: #569cd6;
+    --color-delete: #d65b5b;
+    --color-complete: #3cb043;
+    --color-incomplete: #ffa500;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.5;
+}
+
+h1 {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 3rem;
+}
+
+button, select {
+    font-family: inherit;
+    font-size: 0.9rem;
+    padding: 0.5em 1em;
+    border: 2px solid var(--text-primary);
+    border-radius: 6px;
+    background-color: transparent;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--color-hover-bg);
+    border-color: var(--color-white);
+    color: var(--color-white);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+button:focus-visible {
+    outline: 2px solid var(--color-incomplete);
+    outline-offset: 2px;
+}
+
+/* ── Button variants ────────────────────────────── */
+#add-note-btn {
+    background-color: var(--color-add-dark);
+    border-color: var(--color-add);
+    color: var(--color-white);
+    font-weight: bold;
+}
+
+#add-note-btn:hover {
+    background-color: var(--color-add);
+}
+
+.edit-title-btn, .edit-content-btn {
+    border-color: var(--color-modify);
+    color: var(--color-modify);
+}
+
+.edit-title-btn:hover, .edit-content-btn:hover {
+    background-color: var(--color-modify);
+    color: var(--bg-primary);
+}
+
+.delete-note-btn {
+    border-color: var(--color-delete);
+    color: var(--color-delete);
+}
+
+.delete-note-btn:hover {
+    background-color: var(--color-delete);
+    color: var(--bg-primary);
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 750px;
+    max-height: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+    border: 2px solid var(--color-white);
+    border-radius: 10px;
+    background-color: var(--bg-card);
+}
+
+.notes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    min-height: 0;
+    margin-top: 1rem;
+    gap: 1rem;
+    overflow-y: auto;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-around;
+}
+
+.note-actions {
+    display: flex;
+    justify-content: space-around;
+}
+
+.options-note-separator {
+    margin-top: 1rem;
+}
+
+.note {
+    width: 75%;
+    padding: 1rem;
+    background-color: transparent;
+    border: 2px solid var(--color-white);
+    border-radius: 6px;
+    overflow-wrap: break-word;
+}
+
+.note-title {
+    gap: 0.5rem;
+}
+
+.note-title-text {
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.note-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.complete {
+    color: var(--color-complete);
+}
+
+.incomplete {
+    color: var(--color-incomplete);
+}
+
+.note-divider {
+    margin: 1rem 0;
+}
+
+footer {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+footer p {
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+footer img {
+    height: 100px;
+    width: 100px;
+}
+
+.hidden {
+    display: none;
+}
+
+.no-notes {
+    text-align: center;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .toolbar {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .note {
+        width: 95%;
+    }
+
+    .note-actions {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .main-container {
+        max-height: none;
+    }
+}

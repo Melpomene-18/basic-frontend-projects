@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do Application - By Melpomene-18</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>To-do App</h1>
+    </header>
+    <main>
+        <div class="main-container">
+            <div class="toolbar">
+                <span>
+                    <label for="note-filter">Filter By:</label>
+                    <select id="note-filter" name="note-filter">
+                        <option value="all">all</option>
+                        <option value="incomplete">incomplete</option>
+                        <option value="complete">complete</option>
+                    </select>
+                </span>
+                <button type="button" id="add-note-btn">Add Note</button>
+            </div>
+            <hr class="options-note-separator">
+            <div class="notes">
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>This webpage was created by Melpomene-18.</p>
+        <a href="https://github.com/Melpomene-18"><img src="../images/GitHub_Invertocat_White.png" alt="Github logo linking to Melpomene-18's profile"></a>
+    </footer>
+    <script src="todo.js"></script>
+</body>
+</html>
