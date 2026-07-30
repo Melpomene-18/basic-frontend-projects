@@ -11,9 +11,13 @@ const state = {
  * Loads the saved state stored within local storage.
  */
 function loadState() {
-    const saved = localStorage.getItem('todo-state');
-    if (saved) {
-        state.todos = JSON.parse(saved);
+    try {
+        const saved = localStorage.getItem('todo-state');
+        if (saved) {
+            state.todos = JSON.parse(saved);
+        }
+    } catch (e) {
+        state.todos = []; // fallback.
     }
 }
 
@@ -21,7 +25,11 @@ function loadState() {
  * Saves the current state within local storage.
  */
 function saveState() {
-    localStorage.setItem('todo-state', JSON.stringify(state.todos));
+    try {
+        localStorage.setItem('todo-state', JSON.stringify(state.todos));
+    } catch (e) {
+        // If it can't be saved we assume it's full - degrade.
+    }
 }
 
 /**
