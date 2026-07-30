@@ -7,16 +7,51 @@ const state = {
     filter: 'all'
 };
 
-function setFilter(newFilter) {
-    state.filter = newFilter;
-    refreshUI();
+/**
+ * Loads the saved state stored within local storage.
+ */
+function loadState() {
+    const saved = localStorage.getItem('todo-state');
+    if (saved) {
+        state.todos = JSON.parse(saved);
+    }
 }
 
+/**
+ * Saves the current state within local storage.
+ */
+function saveState() {
+    localStorage.setItem('todo-state', JSON.stringify(state.todos));
+}
+
+/**
+ * Filters the entire state of todos based on the currently active filter.
+ * 
+ * @returns {Array<Object>} - The filtered array of todos.
+ */
 function filterTodos() {
     if (state.filter === 'all') return state.todos;
     return state.todos.filter(todo => todo.status === state.filter);
 }
 
+/**
+ * Rendered to the DOM when no relevant todos are present.
+ */
+function renderNoNotes() {
+    notes.innerHTML = '';
+    const noNote = document.createElement('p');
+
+    noNote.className = 'no-notes';
+    noNote.innerHTML = "You have no notes to render. Please consider adding, or completing a preexisting todo."
+
+    notes.appendChild(noNote);
+}
+
+/**
+ * Renders an array of todos to the DOM.
+ * 
+ * @param {Array<Object>} todos - The provided array if todos.
+ */
 function renderNotes(todos) {
     notes.innerHTML = '';
 
@@ -60,16 +95,11 @@ function renderNotes(todos) {
     }
 }
 
-function renderNoNotes() {
-    notes.innerHTML = '';
-    const noNote = document.createElement('p');
-
-    noNote.className = 'no-notes';
-    noNote.innerHTML = "You have no notes to render. Please consider adding, or completing a preexisting todo."
-
-    notes.appendChild(noNote);
-}
-
+/**
+ * Refreshes the UI based on the current state of the filtered todos.
+ * 
+ * @returns {void} - If no todos are present.
+ */
 function refreshUI() {
     const filtered = filterTodos();
 
@@ -81,31 +111,68 @@ function refreshUI() {
     renderNotes(filtered);
 }
 
+/**
+ * Updates the active todo filter and re-renders the UI.
+ *
+ * @param {'all' | 'complete' | 'incomplete'} newFilter - The filter mode to apply.
+ */
+function setFilter(newFilter) {
+    state.filter = newFilter;
+    refreshUI();
+}
+
+/**
+ * Adds a new note to the array of todos, subsequently persisting it to local storage.
+ */
 function addNote() {
+    const title = prompt("Please provide a title for your todo.");
+    if (!title) return;
+
     const note = {
         id: crypto.randomUUID(),
-        title: 'Placeholder title',
+        title: title,
         status: 'incomplete',
         content: 'Lorem ipsum.'
     }
 
     state.todos.push(note);
+    saveState();
     refreshUI();
 }
 
+/**
+ * Removes a todo from the state by its ID, persists to local storage.
+ * 
+ * @param {string} todoId - The UUID of the todo to delete.
+ */
 function deleteNote(todoId) {
     state.todos = state.todos.filter(todo => todo.id !== todoId);
+    saveState();
     refreshUI();
 }
 
+/**
+ * Toggles the completeness status of a todo, based on its given UUID. Persists to local storage.
+ * 
+ * @param {string} todoId - The UUID of the todo to toggle.
+ * @returns {void}
+ */
 function toggleNote(todoId) {
     const todo = state.todos.find(todo => todo.id === todoId);
     if (!todo) return;
 
     todo.status = todo.status === 'complete' ? 'incomplete' : 'complete';
+
+    saveState();
     refreshUI();
 }
 
+/**
+ * Edits the title of the todo based on it's provided UUID, persists to local storage.
+ * 
+ * @param {string} todoId - The UUID of the todo to edit.
+ * @returns {void}
+ */
 function editTitle(todoId) {
     const todo = state.todos.find(todo => todo.id === todoId);
     if (!todo) return;
@@ -114,9 +181,16 @@ function editTitle(todoId) {
     if (!title) return;
 
     todo.title = title;
+    saveState();
     refreshUI();
 }
 
+/**
+ * Edits the content of the todo based on it's provided UUID, persists to local storage.
+ * 
+ * @param {string} todoId - The UUID of the todo to edit.
+ * @returns {void}
+ */
 function editContent(todoId) {
     const todo = state.todos.find(todo => todo.id === todoId);
     if (!todo) return;
@@ -125,6 +199,7 @@ function editContent(todoId) {
     if (!content) return;
 
     todo.content = content;
+    saveState();
     refreshUI();
 }
 
@@ -150,5 +225,6 @@ notes.addEventListener('click', (e) => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+    loadState();
     refreshUI();
 });
