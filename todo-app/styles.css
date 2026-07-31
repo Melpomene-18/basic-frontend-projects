@@ -1,3 +1,5 @@
+/* CSS Custom Properties */
+
 :root {
     --bg-primary: #1b1b1b;
     --bg-card: #353535;
@@ -12,11 +14,15 @@
     --color-incomplete: #ffa500;
 }
 
+/* Reset */
+
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
+/* Base Elements */
 
 body {
     width: 100%;
@@ -61,7 +67,104 @@ button:focus-visible {
     outline-offset: 2px;
 }
 
-/* ── Button variants ────────────────────────────── */
+/* Layout */
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 750px;
+    max-height: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+    border: 2px solid var(--color-white);
+    border-radius: 10px;
+    background-color: var(--bg-card);
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-around;
+}
+
+.options-note-separator {
+    margin-top: 1rem;
+}
+
+.notes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    min-height: 0;
+    margin-top: 1rem;
+    gap: 1rem;
+    overflow-y: auto;
+}
+
+footer {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+footer p {
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+footer img {
+    height: 100px;
+    width: 100px;
+}
+
+/* Note Card */
+
+.note {
+    width: 75%;
+    padding: 1rem;
+    background-color: transparent;
+    border: 2px solid var(--color-white);
+    border-radius: 6px;
+    overflow-wrap: break-word;
+}
+
+.note-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.note-title-text {
+    min-width: 0;
+    overflow-wrap: break-word;
+}
+
+.note-divider {
+    margin: 1rem 0;
+}
+
+.note-actions {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Status */
+
+.complete {
+    color: var(--color-complete);
+}
+
+.incomplete {
+    color: var(--color-incomplete);
+}
+
+.no-notes {
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Button Variants */
+
 #add-note-btn {
     background-color: var(--color-add-dark);
     border-color: var(--color-add);
@@ -93,103 +196,13 @@ button:focus-visible {
     color: var(--bg-primary);
 }
 
-.main-container {
-    display: flex;
-    flex-direction: column;
-    max-width: 750px;
-    max-height: 600px;
-    margin: 0 auto;
-    padding: 1rem;
-    border: 2px solid var(--color-white);
-    border-radius: 10px;
-    background-color: var(--bg-card);
-}
-
-.notes {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
-    min-height: 0;
-    margin-top: 1rem;
-    gap: 1rem;
-    overflow-y: auto;
-}
-
-.toolbar {
-    display: flex;
-    justify-content: space-around;
-}
-
-.note-actions {
-    display: flex;
-    justify-content: space-around;
-}
-
-.options-note-separator {
-    margin-top: 1rem;
-}
-
-.note {
-    width: 75%;
-    padding: 1rem;
-    background-color: transparent;
-    border: 2px solid var(--color-white);
-    border-radius: 6px;
-    overflow-wrap: break-word;
-}
-
-.note-title {
-    gap: 0.5rem;
-}
-
-.note-title-text {
-    min-width: 0;
-    overflow-wrap: break-word;
-    word-break: break-word;
-}
-
-.note-title {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.complete {
-    color: var(--color-complete);
-}
-
-.incomplete {
-    color: var(--color-incomplete);
-}
-
-.note-divider {
-    margin: 1rem 0;
-}
-
-footer {
-    text-align: center;
-    margin-top: 1rem;
-}
-
-footer p {
-    font-style: italic;
-    margin-bottom: 1rem;
-}
-
-footer img {
-    height: 100px;
-    width: 100px;
-}
+/* Utilities */
 
 .hidden {
     display: none;
 }
 
-.no-notes {
-    text-align: center;
-    font-weight: bold;
-}
+/* Media Queries */
 
 @media (max-width: 600px) {
     h1 {
