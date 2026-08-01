@@ -4,11 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 3rem 1rem;
+            background-color: #1b1b1b;
+            font-family: 'Courier New', Courier, monospace;
+            color: #ccc;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h1 {
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        .subtitle {
+            margin-bottom: 2.5rem;
+            text-align: center;
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        .category {
+            margin-bottom: 2rem;
+        }
+
+        .category h2 {
+            margin-bottom: 0.75rem;
+            padding-left: 0.25rem;
+            font-size: 1rem;
+            color: #888;
+            text-transform: uppercase;
+        }
+
+        .projects {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .project-card {
+            display: block;
+            padding: 1rem 1.25rem;
+            background: #252525;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            text-decoration: none;
+            color: #ccc;
+        }
+
+        .project-card:hover {
+            background: #2e2e2e;
+            border-color: #569cd6;
+        }
+
+        .project-card .name {
+            font-size: 1.05rem;
+            font-weight: bold;
+            color: #e0e0e0;
+        }
+
+        .project-card .desc {
+            margin-top: 0.25rem;
+            font-size: 0.8rem;
+            color: #888;
+        }
+    </style>
 </head>
 <body>
-    <a href="todo-app/todo.html">To-do application.</a>
-    <br>
-    <a href="github-lookup/index.html">Github Username Lookup.</a>
-    <br>
+    <div class="container">
+        <h1>NAVIGATOR</h1>
+        <p class="subtitle">basic frontend projects</p>
+
+        <div class="category">
+            <h2>HTML + CSS + Javascript</h2>
+            <div class="projects">
+                <a href="todo-app/todo.html" class="project-card">
+                    <span class="name">To-do Application</span>
+                    <span class="desc">Task manager with add, modify, delete, and complete.</span>
+                </a>
+                <a href="github-lookup/index.html" class="project-card">
+                    <span class="name">GitHub Username Lookup</span>
+                    <span class="desc">Search GitHub profiles by username.</span>
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
